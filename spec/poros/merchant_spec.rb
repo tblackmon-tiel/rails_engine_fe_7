@@ -28,17 +28,21 @@ RSpec.describe Merchant do
     }
 
     items = [{
-      name: "item name",
-      description: "item description",
-      unit_price: 10.23,
-      merchant_id: 1
+      id: "4",
+      type: "item",
+      attributes: {
+        name: "item name",
+        description: "item description",
+        unit_price: 10.23,
+        merchant_id: 1
+      }
     }]
 
     merchant = Merchant.new(data, items)
 
     expect(merchant.items).to be_an Array
-    expect(merchant.items.first.name).to eq(items.first[:name])
-    expect(merchant.items.first.description).to eq(items.first[:description])
-    expect(merchant.items.first.unit_price).to eq(items.first[:unit_price])
+    expect(merchant.items.first.name).to eq(items.first[:attributes][:name])
+    expect(merchant.items.first.description).to eq(items.first[:attributes][:description])
+    expect(merchant.items.first.unit_price).to eq(items.first[:attributes][:unit_price])
   end
 end

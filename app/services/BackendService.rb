@@ -10,4 +10,12 @@ class BackendService
   def all_merchants
     get_url("/api/v1/merchants")
   end
+
+  def merchant_details(id)
+    get_url("/api/v1/merchants/#{id}")
+  end
+
+  def merchant_items(id)
+    get_url("/api/v1/merchants/#{id}/items")
+  end
 end
