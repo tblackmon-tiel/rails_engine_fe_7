@@ -13,6 +13,7 @@ RSpec.describe Merchant do
     merchant = Merchant.new(data)
 
     expect(merchant).to be_a Merchant
+    expect(merchant.id).to eq(data[:id])
     expect(merchant.name).to eq(data[:attributes][:name])
     expect(merchant.items).to be nil
   end

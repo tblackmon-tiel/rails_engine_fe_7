@@ -4,7 +4,7 @@ class BackendService
   end
 
   def get_url(url)
-    JSON.parse(conn.get(url), symbolize_names: true)
+    JSON.parse(conn.get(url).body, symbolize_names: true)
   end
 
   def all_merchants
